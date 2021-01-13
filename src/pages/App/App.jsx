@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Users from "../Users/Users";
 import "./App.css";
-
-
+import ThingsCard from "../../components/ThingsCard/ThingsCard";
 
 class App extends Component {
   state = {
     user: authService.getUser(),
-    
+
     juansThings: [
       {
         name: "FIFA21",
@@ -36,7 +35,7 @@ class App extends Component {
         ],
       },
       {
-        name: "Mac BookPro",
+        name: "MacBook Pro",
         image:
           "https://techcrunch.com/wp-content/uploads/2019/11/MacBook-Pro-16-IMG_2820-1.jpeg",
         attributes: ["fast", "sexy", "bugs", "ummmmm", "$$$$$$$$$"],
@@ -64,38 +63,47 @@ class App extends Component {
     ],
     juliosThings: [
       {
-        name: 'Goku',
-        image: 'https://images-na.ssl-images-amazon.com/images/I/71om4dFYpdL._SL1500_.jpg',
-        attributes: ['Health:90', 'Ki:40', 'Stamina:100']
+        name: "Goku",
+        image:
+          "https://images-na.ssl-images-amazon.com/images/I/71om4dFYpdL._SL1500_.jpg",
+        attributes: ["Health:90", "Ki:40", "Stamina:100"],
       },
       {
-        name: 'Lucario',
-        image: 'https://cdn.bulbagarden.net/upload/thumb/d/d7/448Lucario.png/1200px-448Lucario.png',
-        attributes: ['fighting', 'steel', 'not a taco', 'why gravy exists']
+        name: "Lucario",
+        image:
+          "https://cdn.bulbagarden.net/upload/thumb/d/d7/448Lucario.png/1200px-448Lucario.png",
+        attributes: ["fighting", "steel", "not a taco", "why gravy exists"],
       },
       {
-        name: 'Among us',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlBSTWoS7qDmebYHU_tdAEmWVsHjL1NC0FUQ&usqp=CAU',
-        attributes: ["red", "green", "blue", "yellow"]
-      }
+        name: "Among us",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlBSTWoS7qDmebYHU_tdAEmWVsHjL1NC0FUQ&usqp=CAU",
+        attributes: ["red", "green", "blue", "yellow"],
+      },
     ],
     mikesThings: [
       {
-        name: 'bag of butterflies',
-        image: 'https://www.wired.com/images_blogs/wiredscience/2009/09/butterflies.jpg',
-        attributes: ['fluttering','grace','awesomeness','gentle']
+        name: "bag of butterflies",
+        image:
+          "https://www.wired.com/images_blogs/wiredscience/2009/09/butterflies.jpg",
+        attributes: ["fluttering", "grace", "awesomeness", "gentle"],
       },
       {
-        name: 'surf n turf',
-        image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/a6/41/e5/surf-n-turf.jpg',
-        attributes: ['all you need','if you get to surfin, best believe you gon need the turfin']
+        name: "surf n turf",
+        image:
+          "https://media-cdn.tripadvisor.com/media/photo-s/0f/a6/41/e5/surf-n-turf.jpg",
+        attributes: [
+          "all you need",
+          "if you get to surfin, best believe you gon need the turfin",
+        ],
       },
       {
-        name: 'bongos',
-        image: 'https://media.guitarcenter.com/is/image/MMGS7//CP221-Tunable-Bongos-with-Bag/440683000000000-00-1600x1600.jpg',
-        attributes: ['beats are life']
-      }
-    ]
+        name: "bongos",
+        image:
+          "https://media.guitarcenter.com/is/image/MMGS7//CP221-Tunable-Bongos-with-Bag/440683000000000-00-1600x1600.jpg",
+        attributes: ["beats are life"],
+      },
+    ],
   };
 
   handleLogout = () => {
@@ -119,6 +127,10 @@ class App extends Component {
           render={() => (
             <main>
               <h1>Welcome. This is an authorization template.</h1>
+              <Link to={{ pathname: "/tylersThings" }}>Tyler's Things</Link><br/>
+              <Link to={{ pathname: "/juansThings" }}>Juan's Things</Link><br/>
+              <Link to={{ pathname: "/juliosThings" }}>Julio's Things</Link><br/>
+              <Link to={{ pathname: "/michaelsThings" }}>Michael's Things</Link>
             </main>
           )}
         />
@@ -146,6 +158,34 @@ class App extends Component {
           exact
           path="/users"
           render={() => (user ? <Users /> : <Redirect to="/login" />)}
+        />
+        <Route
+          exact
+          path="/tylersThings"
+          render={({ history }) => (
+            <ThingsCard history={history} things={this.state.tylersThings} />
+          )}
+        />
+        <Route
+          exact
+          path="/juansThings"
+          render={({ history }) => (
+            <ThingsCard history={history} things={this.state.juansThings} />
+          )}
+        />
+        <Route
+          exact
+          path="/juliosThings"
+          render={({ history }) => (
+            <ThingsCard history={history} things={this.state.juliosThings} />
+          )}
+        />
+        <Route
+          exact
+          path="/michaelsThings"
+          render={({ history }) => (
+            <ThingsCard history={history} things={this.state.michaelsThings} />
+          )}
         />
       </>
     );
