@@ -7,10 +7,13 @@ import authService from "../../services/authService";
 import Users from "../Users/Users";
 import "./App.css";
 
+
+
 class App extends Component {
   state = {
     user: authService.getUser(),
-    juanThings: [
+    
+    juansThings: [
       {
         name: "FIFA21",
         image:
@@ -39,7 +42,6 @@ class App extends Component {
         attributes: ["fast", "sexy", "bugs", "ummmmm", "$$$$$$$$$"],
       },
     ],
-
     tylersThings: [
       {
         name: "husky",
@@ -60,7 +62,59 @@ class App extends Component {
         attributes: ["small", "spunky", "caring"],
       },
     ],
+    juliosThings: [
+      {
+        name: 'Goku',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/71om4dFYpdL._SL1500_.jpg',
+        attributes: ['Health:90', 'Ki:40', 'Stamina:100']
+      },
+      {
+        name: 'Lucario',
+        image: 'https://cdn.bulbagarden.net/upload/thumb/d/d7/448Lucario.png/1200px-448Lucario.png',
+        attributes: ['fighting', 'steel', 'not a taco', 'why gravy exists']
+      },
+      {
+        name: 'Among us',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlBSTWoS7qDmebYHU_tdAEmWVsHjL1NC0FUQ&usqp=CAU',
+        attributes: ["red", "green", "blue", "yellow"]
+      }
+    ],
+    mikesThings: [
+      {
+        name: 'bag of butterflies',
+        image: 'https://www.wired.com/images_blogs/wiredscience/2009/09/butterflies.jpg',
+        attributes: ['fluttering','grace','awesomeness','gentle']
+      },
+      {
+        name: 'surf n turf',
+        image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/a6/41/e5/surf-n-turf.jpg',
+        attributes: ['all you need','if you get to surfin, best believe you gon need the turfin']
+      },
+      {
+        name: 'bongos',
+        image: 'https://media.guitarcenter.com/is/image/MMGS7//CP221-Tunable-Bongos-with-Bag/440683000000000-00-1600x1600.jpg',
+        attributes: ['beats are life']
+      }
+    ],
+    tylersThings: [
+      {
+        name: 'husky',
+        image: 'https://images.unsplash.com/photo-1560830672-575980201c33?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHw%3D&w=1000&q=80',
+        attributes: ['such fluff', 'white when clean','much shedding']
+      }, 
+      {
+        name: 'siamese',
+        image: 'https://images.unsplash.com/photo-1523863745117-a610a34eb231?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fHNpYW1lc2UlMjBjYXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
+        attributes: ['such anger', 'loves water', 'vocal']
+      }, 
+      {
+        name: 'fiancee',
+        image: 'https://images.unsplash.com/photo-1565206077212-4eb48d41f54b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8cmluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',
+        attributes: ['small', 'spunky', 'caring']
+      }
+    ]
   };
+
 
   handleLogout = () => {
     authService.logout();
