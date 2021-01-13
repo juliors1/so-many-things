@@ -81,7 +81,7 @@ class App extends Component {
         attributes: ["red", "green", "blue", "yellow"],
       },
     ],
-    mikesThings: [
+    michaelsThings: [
       {
         name: "bag of butterflies",
         image:
@@ -101,7 +101,7 @@ class App extends Component {
         name: "bongos",
         image:
           "https://media.guitarcenter.com/is/image/MMGS7//CP221-Tunable-Bongos-with-Bag/440683000000000-00-1600x1600.jpg",
-        attributes: ["beats are life"],
+        attributes: ["beats are life"]
       },
     ],
   };
